@@ -9,7 +9,7 @@ class Operators extends Component {
                 <Button value="-"/>
                 <Button value="*"/>
                 <Button value="/"/>
-            </ div>
+            </div>
         )
     }
 }

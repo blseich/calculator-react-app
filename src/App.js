@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Display from './components/Display'
+import InteractiveArea from './components/InteractiveArea';
 import './App.css'
 
 class App extends Component {
@@ -7,9 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="calculator">
-         <Display value="0"/>
-          <div className="operatorButtons">
-          </div>
+          <Display value="0"/>
+          <InteractiveArea />
           <div className="numberButtons">
           </div>
         </div>
