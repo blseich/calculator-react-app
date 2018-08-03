@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import ClearButton from './ClearButton'
+import EqualsButton from './EqualsButton'
 
 class Numbers extends Component {
     render() {
@@ -21,7 +23,9 @@ class Numbers extends Component {
                     <Button value="9"/>    
                 </div>
                 <div>
-                    <Button value="0"/>   
+                    <ClearButton />
+                    <Button value="0"/>
+                    <EqualsButton />   
                 </div>
             </div>
         )
