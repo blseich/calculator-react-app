@@ -4,6 +4,7 @@ import React from 'react'
 import { expect } from 'chai'
 import InteractiveArea from '../src/components/InteractiveArea'
 import Operators from '../src/components/Operators'
+import Numbers from '../src/components/Numbers'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -15,6 +16,10 @@ describe('InteractiveArea Component', () => {
 
     it('should render Operators', () => {
         expect(wrapper.find(Operators)).to.have.length(1)
+    })
+
+    it('should render Numbers', () => {
+        expect(wrapper.find(Numbers)).to.have.length(1)
     })
 
 })
