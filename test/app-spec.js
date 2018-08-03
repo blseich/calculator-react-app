@@ -18,5 +18,4 @@ describe("App Test", () => {
         const wrapper = shallow(<App />)
         expect(wrapper.find(Display).props().value).to.be.equal('0')
     })
-
 })
