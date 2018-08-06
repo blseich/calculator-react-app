@@ -1,21 +1,22 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Display from './components/Display'
-import InteractiveArea from './components/InteractiveArea';
-import './App.css'
+import InteractiveArea from './components/InteractiveArea'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="calculator">
-          <Display value="0"/>
-          <InteractiveArea />
-          <div className="numberButtons">
-          </div>
-        </div>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            output: "0"
+        }
+    }
+
+
+    render() {
+        return (<div className="Calculator">
+            <Display value={this.state.output}/>
+            <InteractiveArea/>
+        </div>);
+    }
 }
 
 export default App;
