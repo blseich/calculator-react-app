@@ -133,5 +133,25 @@ describe("App Test", () => {
             wrapper.find({label: "="}).simulate('click')
             expect(display.text()).to.be.equal("8*9-")
         })
+
+        it('should append numbers and operators after expression is evaluated', () => {
+            wrapper.find({label: "8"}).simulate('click')
+            wrapper.find({label: "*"}).simulate('click')
+            wrapper.find({label: "9"}).simulate('click')
+            wrapper.find({label: "-"}).simulate('click')
+            wrapper.find({label: "6"}).simulate('click')
+            wrapper.find({label: "0"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("8*9-60")
+
+            wrapper.find({label: "="}).simulate('click')
+            expect(display.text()).to.be.equal("12")
+
+            wrapper.find({label: "/"}).simulate('click')
+            wrapper.find({label: "4"}).simulate('click')
+            expect(display.text()).to.be.equal("12/4")
+
+        })
     })
 })

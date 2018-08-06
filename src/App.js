@@ -32,7 +32,7 @@ class App extends Component {
                 }
             } else{
                 if(buttonPressed === "=" && this.lastCharIsANumber(output)){
-                    output = calculate(output)
+                    output = calculate(output).toString()
                 } else if(this.lastCharIsANumber(output) || this.buttonPressedIsANumber(buttonPressed)){
                     output += buttonPressed
                 }
