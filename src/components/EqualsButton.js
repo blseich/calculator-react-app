@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import Button from './Button'
 
-class EqualsButton extends Component {
-    render() {
-        return (
-            <Button value='='/>
-        )
-    }
+const EqualsButton = (props) => {
+    return (
+        <Button value='='/>
+    )
 }
 
 export default EqualsButton

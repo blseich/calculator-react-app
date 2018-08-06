@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class Display extends Component {
-    render() {
-        return (
-            <div className="display">{this.props.value}</div>
-        )
-    }
+const Display = (props) => {
+    return (
+        <div className="display">
+            {props.value}
+        </div>
+    )
 }
 
 export default Display

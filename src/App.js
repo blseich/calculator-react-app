@@ -11,8 +11,16 @@ class App extends Component {
     }
 
     handleClick(event) {
+        let output = this.state.output.slice()
         let number = event.target.getAttribute('label')
-        this.setState({output: number})
+
+        if(output === "0"){
+            output = number
+        } else {
+            output += number
+        }
+
+        this.setState({output})
     }
 
     render() {

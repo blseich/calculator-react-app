@@ -42,4 +42,14 @@ describe("App Test", () => {
         let display = wrapper.find(Display)
         expect(display.text()).to.be.equal("3")
     })
+
+    it('should append number on display when number is pressed and display isn\'t 0', () => {
+        wrapper = mount(<App />)
+
+        wrapper.find({label: "5"}).simulate('click')
+        wrapper.find({label: "9"}).simulate('click')
+
+        let display = wrapper.find(Display)
+        expect(display.text()).to.be.equal("59")
+    })
 })
