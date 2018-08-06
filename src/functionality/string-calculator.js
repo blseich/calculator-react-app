@@ -10,7 +10,7 @@ const divide = calc('/', (acc, val) => acc / val)
 
 const extractDivision = (exp) => exp.match(/[\d]+\/[\d]+/g)
 const extractMult = (exp) => exp.match(/\d+(\.\d+)?(\*\d+(\.\d+)?)+/g)
-const extractParens = (exp) => exp.match(/\(\d+(\.\d+)?((\*|\/|\+|\-)\d+(\.\d+)?)+\)/g)
+const extractParens = (exp) => exp.match(/\(\d+(\.\d+)?((\*|\/|\+|-)\d+(\.\d+)?)+\)/g)
 
 const replaceEvaluatedExpressions = curry((calculation, exp, expressions) => {
     return expressions.reduce((simplifiedExp, curr) => {
