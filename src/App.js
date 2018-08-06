@@ -12,13 +12,18 @@ class App extends Component {
 
     handleClick(event) {
         let output = this.state.output.slice()
-        let number = event.target.getAttribute('label')
+        let buttonPressed = event.target.getAttribute('label')
 
         if(output === "0"){
-            output = number
-        } else {
-            output += number
+            if(buttonPressed.match(/\d+/)){
+                output = buttonPressed
+            }
+        } else{
+            if(output.slice(-1).match(/\d+/) || buttonPressed.match(/\d+/)){
+                output += buttonPressed
+            }
         }
+
 
         this.setState({output})
     }

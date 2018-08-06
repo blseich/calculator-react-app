@@ -17,39 +17,82 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe("App Test", () => {
     let wrapper
-    beforeEach('Render App', () => {
-        wrapper = shallow(<App />)
-    })
-
-    it('should render Display', () => {
-        expect(wrapper.find(Display)).to.have.length(1)
-    })
-
-    it('should pass 0 to Display initially', () => {
-        expect(wrapper.find(Display).props().value).to.be.equal('0')
-    })
-
-    it('should render InteractiveArea', () => {
-        expect(wrapper.find(InteractiveArea)).to.have.length(1)
-    })
-
-    it('should change number on display when number is pressed', () => {
+    beforeEach('Mount App', () => {
         wrapper = mount(<App />)
-
-        let button3 = wrapper.find({label: "3"})
-        button3.simulate('click')
-
-        let display = wrapper.find(Display)
-        expect(display.text()).to.be.equal("3")
     })
 
-    it('should append number on display when number is pressed and display isn\'t 0', () => {
-        wrapper = mount(<App />)
+    describe('Render App', () =>{
+        it('should render Display', () => {
+            expect(wrapper.find(Display)).to.have.length(1)
+        })
 
-        wrapper.find({label: "5"}).simulate('click')
-        wrapper.find({label: "9"}).simulate('click')
+        it('should pass 0 to Display initially', () => {
+            expect(wrapper.find(Display).props().value).to.be.equal('0')
+        })
 
-        let display = wrapper.find(Display)
-        expect(display.text()).to.be.equal("59")
+        it('should render InteractiveArea', () => {
+            expect(wrapper.find(InteractiveArea)).to.have.length(1)
+        })
     })
+
+    describe('Add Numbers to Display', () => {
+        it('should change number on display when number is pressed', () => {
+
+            let button3 = wrapper.find({label: "3"})
+            button3.simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("3")
+        })
+
+        it('should append number on display when number is pressed and display isn\'t 0', () => {
+
+            wrapper.find({label: "5"}).simulate('click')
+            wrapper.find({label: "9"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("59")
+        })
+    })
+
+    describe('Add Operators to Display', () => {
+        it('should NOT add operator when display is 0', () => {
+
+            let button3 = wrapper.find({label: "/"})
+            button3.simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("0")
+        })
+
+        it('should add operator when display is NOT 0', () => {
+
+            wrapper.find({label: "4"}).simulate('click')
+            wrapper.find({label: "*"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("4*")
+        })
+
+        it('should NOT add operator when last character is an operator', () => {
+
+            wrapper.find({label: "2"}).simulate('click')
+            wrapper.find({label: "-"}).simulate('click')
+            wrapper.find({label: "+"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("2-")
+        })
+
+        it('should add number after an operator', () => {
+
+            wrapper.find({label: "7"}).simulate('click')
+            wrapper.find({label: "+"}).simulate('click')
+            wrapper.find({label: "8"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("7+8")
+        })
+    })
+
 })

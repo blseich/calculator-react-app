@@ -5,7 +5,7 @@ import Numbers from './Numbers'
 const InteractiveArea = (props) => {
     return (
         <div className="interactiveArea">
-            <Operators />
+            <Operators onClick={props.onClick}/>
             <Numbers onClick={props.onClick}/>
         </div>
     )
