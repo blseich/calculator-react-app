@@ -95,4 +95,17 @@ describe("App Test", () => {
         })
     })
 
+    describe('Clear Display', () => {
+        it('should display 0 when clear button is pressed', () => {
+            wrapper.find({label: "2"}).simulate('click')
+            wrapper.find({label: "-"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("2-")
+
+            wrapper.find({label: "clr"}).simulate('click')
+            expect(display.text()).to.be.equal("0")
+        })
+    })
+
 })

@@ -3,7 +3,7 @@ import Button from './Button'
 
 const ClearButton = (props) => {
     return (
-        <Button value="CLR"/>
+        <Button value="clr" onClick={props.onClick}/>
     )
 }
 

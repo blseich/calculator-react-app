@@ -14,13 +14,17 @@ class App extends Component {
         let output = this.state.output.slice()
         let buttonPressed = event.target.getAttribute('label')
 
-        if(output === "0"){
-            if(buttonPressed.match(/\d+/)){
-                output = buttonPressed
-            }
+        if(buttonPressed === "clr"){
+            output = "0"
         } else{
-            if(output.slice(-1).match(/\d+/) || buttonPressed.match(/\d+/)){
-                output += buttonPressed
+            if(output === "0"){
+                if(buttonPressed.match(/\d+/)){
+                    output = buttonPressed
+                }
+            } else{
+                if(output.slice(-1).match(/\d+/) || buttonPressed.match(/\d+/)){
+                    output += buttonPressed
+                }
             }
         }
 

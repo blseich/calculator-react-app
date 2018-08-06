@@ -40,7 +40,7 @@ const Numbers = (props) => {
                 onClick={props.onClick}/>
             </div>
             <div>
-                <ClearButton />
+                <ClearButton onClick={props.onClick}/>
                 <Button
                 value="0"
                 onClick={props.onClick}/>
