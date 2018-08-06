@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import calculate from './functionality/string-calculator'
 import Display from './components/Display'
 import InteractiveArea from './components/InteractiveArea'
 
@@ -22,12 +23,13 @@ class App extends Component {
                     output = buttonPressed
                 }
             } else{
-                if(output.slice(-1).match(/\d+/) || buttonPressed.match(/\d+/)){
+                if(buttonPressed === "="){
+                    output = calculate(output).toString()
+                } else if(output.slice(-1).match(/\d+/) || buttonPressed.match(/\d+/)){
                     output += buttonPressed
                 }
             }
         }
-
 
         this.setState({output})
     }

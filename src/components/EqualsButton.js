@@ -3,7 +3,7 @@ import Button from './Button'
 
 const EqualsButton = (props) => {
     return (
-        <Button value='='/>
+        <Button value='=' onClick={props.onClick}/>
     )
 }
 

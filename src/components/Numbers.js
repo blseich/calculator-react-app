@@ -44,7 +44,7 @@ const Numbers = (props) => {
                 <Button
                 value="0"
                 onClick={props.onClick}/>
-                <EqualsButton />
+                <EqualsButton onClick={props.onClick}/>
             </div>
         </div>
     )

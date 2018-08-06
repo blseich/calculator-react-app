@@ -108,4 +108,17 @@ describe("App Test", () => {
         })
     })
 
+    describe('Equals Functionality', () => {
+        it('should evaluate expression when equals button is pressed', () => {
+            wrapper.find({label: "2"}).simulate('click')
+            wrapper.find({label: "+"}).simulate('click')
+            wrapper.find({label: "7"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("2+7")
+
+            wrapper.find({label: "="}).simulate('click')
+            expect(display.text()).to.be.equal("9")
+        })
+    })
 })
