@@ -11,6 +11,14 @@ class App extends Component {
         }
     }
 
+    buttonPressedIsANumber(buttonPressed){
+        return buttonPressed.match(/\d+/)
+    }
+
+    lastCharIsANumber(output){
+        return output.slice(-1).match(/\d+/)
+    }
+
     handleClick(event) {
         let output = this.state.output.slice()
         let buttonPressed = event.target.getAttribute('label')
@@ -19,13 +27,13 @@ class App extends Component {
             output = "0"
         } else{
             if(output === "0"){
-                if(buttonPressed.match(/\d+/)){
+                if(this.buttonPressedIsANumber(buttonPressed)){
                     output = buttonPressed
                 }
             } else{
-                if(buttonPressed === "="){
-                    output = calculate(output).toString()
-                } else if(output.slice(-1).match(/\d+/) || buttonPressed.match(/\d+/)){
+                if(buttonPressed === "=" && this.lastCharIsANumber(output)){
+                    output = calculate(output)
+                } else if(this.lastCharIsANumber(output) || this.buttonPressedIsANumber(buttonPressed)){
                     output += buttonPressed
                 }
             }

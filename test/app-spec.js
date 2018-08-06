@@ -120,5 +120,18 @@ describe("App Test", () => {
             wrapper.find({label: "="}).simulate('click')
             expect(display.text()).to.be.equal("9")
         })
+
+        it('should NOT evaluate expression when equals button is pressed and last char is an operator', () => {
+            wrapper.find({label: "8"}).simulate('click')
+            wrapper.find({label: "*"}).simulate('click')
+            wrapper.find({label: "9"}).simulate('click')
+            wrapper.find({label: "-"}).simulate('click')
+
+            let display = wrapper.find(Display)
+            expect(display.text()).to.be.equal("8*9-")
+
+            wrapper.find({label: "="}).simulate('click')
+            expect(display.text()).to.be.equal("8*9-")
+        })
     })
 })
