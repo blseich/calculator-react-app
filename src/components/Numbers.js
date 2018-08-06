@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Button from './Button'
 import ClearButton from './ClearButton'
 import EqualsButton from './EqualsButton'
