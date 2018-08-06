@@ -7,7 +7,7 @@ class InteractiveArea extends Component {
         return (
             <div className="interactiveArea">
                 <Operators />
-                <Numbers />
+                <Numbers onClick={this.props.onClick}/>
             </div>
         )
     }

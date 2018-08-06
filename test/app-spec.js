@@ -1,10 +1,17 @@
-import Enzyme, { shallow } from 'enzyme'
+import Enzyme, { shallow, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import React, { Component } from 'react'
 import { expect } from 'chai'
+
 import App from '../src/App'
 import Display from '../src/components/Display'
 import InteractiveArea from '../src/components/InteractiveArea'
+import Button from '../src/components/Button'
+
+import jsdom from 'jsdom'
+const doc = jsdom.jsdom('<!doctype html><html><body></body></html>')
+global.document = doc
+global.window = doc.defaultView
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -24,5 +31,15 @@ describe("App Test", () => {
 
     it('should render InteractiveArea', () => {
         expect(wrapper.find(InteractiveArea)).to.have.length(1)
+    })
+
+    it('should change number on display when number is pressed', () => {
+        wrapper = mount(<App />)
+
+        let button3 = wrapper.find({label: "3"})
+        button3.simulate('click')
+
+        let display = wrapper.find(Display)
+        expect(display.text()).to.be.equal("3")
     })
 })

@@ -10,7 +10,7 @@ import Button from '../src/components/Button'
 chai.use(sinonChai)
 
 describe('Button Component', () => {
-    
+
     it('should contain a button element', () => {
         let wrapper = shallow(<Button />)
         expect(wrapper.find('button')).to.have.length(1)
@@ -18,14 +18,14 @@ describe('Button Component', () => {
 
     it('should display the value it is passed', () => {
         let wrapper = shallow(<Button value="+" />)
-        expect(wrapper.find('.button[label="+"]')).to.have.length(1)
+        expect(wrapper.find({label: "+"}).text()).to.be.equal("+")
     })
 
-    it('should call provided function with its provided value when clicked', () => {
+    it('should call provided function', () => {
         let clickySpy = spy()
-        let wrapper = shallow(<Button value="9" clicky={clickySpy}/>)
+        let wrapper = shallow(<Button value="9" onClick={clickySpy}/>)
         wrapper.find('button').simulate("click")
-        expect(clickySpy).to.have.been.calledWith("9")
+        expect(clickySpy.called).to.be.true
     })
 
 })

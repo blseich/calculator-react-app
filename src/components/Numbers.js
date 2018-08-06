@@ -8,24 +8,44 @@ class Numbers extends Component {
         return (
             <div className="Numbers">
                 <div>
-                    <Button value="1"/>
-                    <Button value="2"/>
-                    <Button value="3"/>    
+                    <Button
+                    value="1" 
+                    onClick={this.props.onClick}/>
+                    <Button
+                    value="2" 
+                    onClick={this.props.onClick}/>
+                    <Button
+                    value="3" 
+                    onClick={this.props.onClick}/>
                 </div>
                 <div>
-                    <Button value="4"/>
-                    <Button value="5"/>
-                    <Button value="6"/>    
+                    <Button
+                    value="4" 
+                    onClick={this.props.onClick}/>
+                    <Button
+                    value="5" 
+                    onClick={this.props.onClick}/>
+                    <Button
+                    value="6" 
+                    onClick={this.props.onClick}/>
                 </div>
                 <div>
-                    <Button value="7"/>
-                    <Button value="8"/>
-                    <Button value="9"/>    
+                    <Button
+                    value="7" 
+                    onClick={this.props.onClick}/>
+                    <Button
+                    value="8" 
+                    onClick={this.props.onClick}/>
+                    <Button
+                    value="9" 
+                    onClick={this.props.onClick}/>
                 </div>
                 <div>
                     <ClearButton />
-                    <Button value="0"/>
-                    <EqualsButton />   
+                    <Button
+                    value="0" 
+                    onClick={this.props.onClick}/>
+                    <EqualsButton />
                 </div>
             </div>
         )

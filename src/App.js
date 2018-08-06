@@ -10,12 +10,18 @@ class App extends Component {
         }
     }
 
+    handleClick(event) {
+        let number = event.target.getAttribute('label')
+        this.setState({output: number})
+    }
 
     render() {
-        return (<div className="Calculator">
-            <Display value={this.state.output}/>
-            <InteractiveArea/>
-        </div>);
+        return (
+            <div className="calculator">
+                <Display value={this.state.output}/>
+                <InteractiveArea onClick={(e) => {this.handleClick(e)}}/>
+            </div>
+        );
     }
 }
 
